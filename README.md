@@ -1,5 +1,4 @@
 # SSH-practice
-***
 ## SSH框架练习
 
 + ### struts2_homework1:
