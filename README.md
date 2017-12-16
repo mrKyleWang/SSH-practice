@@ -9,4 +9,4 @@
 > 使用struts2注解开发实现用户登录验证成功后查看商品列表, c3p0+dbutils查询数据库, 页面采用html, ajax异步请求json实现前后台传输
 
 + ### struts-hibernate_homework3:
-> 基本功能基于struts_homework2, 采用maven构建, dao层采用hibernate查询数据库
+> 基本功能基于struts_homework2, 采用maven构建, dao层替换为hibernate查询数据库
