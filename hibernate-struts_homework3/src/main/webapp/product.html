@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Product</title>
+<style type="text/css">
+#customers {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#customers td, #customers th {
+	font-size: 1em;
+	border: 1px solid #98bf21;
+	padding: 3px 7px 2px 7px;
+}
+
+#customers th {
+	font-size: 1.1em;
+	text-align: left;
+	padding-top: 5px;
+	padding-bottom: 4px;
+	background-color: #A7C942;
+	color: #ffffff;
+}
+</style>
+<script src="/hibernate-struts_homework3/js/jquery-1.8.3.js" /></script>
+<script type="text/javascript">
+	$(function() {
+		var url = "/hibernate-struts_homework3/showProduct";
+		$.post(url, function(data) {
+			var jsonData = eval(data);
+			if (jsonData.code == 1) {
+				var list = jsonData.data;
+				var content = "";
+				for (var i = 0; i < list.length; i++) {
+					content += "<tr><td>" + list[i].name + "</td><td>"
+							+ list[i].count + "</td><td>" + list[i].price
+							+ "</td></tr>"
+				}
+				$("#content").html(content);
+			} else {
+				alert("用户未登录!")
+				window.location.href = jsonData.data;
+			}
+		}, "json");
+	});
+</script>
+</head>
+<body>
+
+	<div style="width: 400px; margin: 0 auto; border: solid 1px">
+		<div style="width: 400px; margin: 0 auto">
+			<h4 align="center">商品列表</h4>
+			<table id="customers">
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>库存</th>
+						<th>价格</th>
+					</tr>
+				</thead>
+				<tbody id="content">
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

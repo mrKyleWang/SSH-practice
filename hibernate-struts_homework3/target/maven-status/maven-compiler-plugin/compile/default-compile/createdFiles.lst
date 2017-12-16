@@ -1,0 +1,15 @@
+com\itheima\demo\service\IProductService.class
+com\itheima\demo\VO\ResultVO.class
+com\itheima\demo\dao\impl\ProductDaoImpl.class
+com\itheima\demo\service\IUserService.class
+com\itheima\demo\dao\impl\UserDaoImpl.class
+com\itheima\demo\entity\User.class
+com\itheima\demo\service\impl\UserServiceImpl.class
+com\itheima\demo\dao\IUserDao.class
+com\itheima\demo\web\interceptor\LoginInterceptor.class
+com\itheima\demo\entity\Product.class
+com\itheima\demo\web\action\ProductAction.class
+com\itheima\demo\web\action\UserAction.class
+com\itheima\demo\dao\IProductDao.class
+com\itheima\demo\utils\JdbcUtils.class
+com\itheima\demo\service\impl\ProductServiceImpl.class
