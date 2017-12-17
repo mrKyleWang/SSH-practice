@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="domain">
+	<!-- 配置表与对象的关系 -->
+	<class name="Role" table="sys_role">
+		<id name="role_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="role_name"></property>
+		<property name="role_memo"></property>
+
+		<!-- 配置多对多关系，集合 -->
+		<!-- name:集合属性名 table:中间表 -->
+		<set name="users" table="sys_user_role" inverse="true">
+			<!-- 主键列名 -->
+			<key column="role_id"></key>
+			<!-- class:与哪个类为多对多关系， column:要引用的对方的主键 -->
+			<many-to-many class="User" column="user_id" />
+		</set>
+
+	</class>
+</hibernate-mapping>

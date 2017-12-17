@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="domain">
+	<!-- 配置表与对象的关系 -->
+	<class name="User" table="sys_user">
+		<id name="user_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="user_code"></property>
+		<property name="user_name"></property>
+		<property name="user_password"></property>
+		<property name="user_state"></property>
+
+		<!-- 配置多对多关系，集合 -->
+		<!-- name:属性名 -->
+		<set name="roles" table="sys_user_role">
+			<!-- 外键列名 -->
+			<key column="user_id"></key>
+			<!-- 关联多方实体 -->
+			<many-to-many class="Role" column="role_id"></many-to-many>
+		</set>
+
+	</class>
+</hibernate-mapping>
