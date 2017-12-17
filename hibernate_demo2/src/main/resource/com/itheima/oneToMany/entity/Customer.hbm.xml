@@ -3,14 +3,15 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.itheima.oneToMany.entity">
-    <class name="Order" table="t_order">
-        <id name="id" column="o_id">
+    <class name="Customer" table="t_customer">
+        <id name="id" column="c_id">
             <generator class="identity"></generator>
         </id>
-        <property name="money" column="o_money"></property>
-        <property name="receiverInfo" column="o_receiverInfo"></property>
-        <many-to-one name="customer" column="c" class="Customer">
-        </many-to-one>
+        <property name="name" column="c_name"></property>
+        <set name="orders" cascade="save-update" inverse="true">
+            <key column="c_customer_id"></key>
+            <one-to-many class="Order"></one-to-many>
+        </set>
     </class>
 
 </hibernate-mapping>

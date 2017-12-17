@@ -8,8 +8,8 @@
             <generator class="identity"></generator>
         </id>
         <property name="name" column="c_name"></property>
-        <set name="orders">
-            <key column="t_customer_id"></key>
+        <set name="orders" cascade="save-update" inverse="true">
+            <key column="c_customer_id"></key>
             <one-to-many class="Order"></one-to-many>
         </set>
     </class>

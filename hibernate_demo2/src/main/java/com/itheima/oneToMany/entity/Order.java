@@ -11,14 +11,6 @@ public class Order {
     // 订单与客户关联
     private Customer c; // 描述订单属于某一个客户
 
-    public Customer getC() {
-        return c;
-    }
-
-    public void setC(Customer c) {
-        this.c = c;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -41,5 +33,13 @@ public class Order {
 
     public void setReceiverInfo(String receiverInfo) {
         this.receiverInfo = receiverInfo;
+    }
+
+    public Customer getC() {
+        return c;
+    }
+
+    public void setC(Customer c) {
+        this.c = c;
     }
 }

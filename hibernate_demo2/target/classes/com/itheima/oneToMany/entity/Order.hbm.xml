@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.itheima.oneToMany.entity">
+    <class name="Order" table="t_order">
+        <id name="id" column="o_id">
+            <generator class="identity"></generator>
+        </id>
+        <property name="money" column="o_money"></property>
+        <property name="receiverInfo" column="o_receiverInfo"></property>
+        <many-to-one name="c" column="c_customer_id" class="Customer" cascade="save-update">
+        </many-to-one>
+    </class>
+
+</hibernate-mapping>
