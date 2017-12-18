@@ -9,3 +9,9 @@
 
 + ### struts-hibernate_homework3:
 > 基本功能基于struts_homework2, 采用maven构建, dao层替换为hibernate查询数据库
+
++ ### hibernate_demo2:
+> 练习hibernate一对多映射
+
++ ### hibernate_demo3:
+> 使用hibernate注解, 练习一对多、多对多、一对一 映射
