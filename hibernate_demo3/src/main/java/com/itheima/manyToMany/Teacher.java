@@ -1,8 +1,5 @@
 package com.itheima.manyToMany;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,10 +12,12 @@ public class Teacher {
 	private Integer id;
 	private String name;
 
-	@ManyToMany(targetEntity = Student.class,mappedBy = "teachers")
-	@Cascade(CascadeType.SAVE_UPDATE)
-	private Set<Student> students = new HashSet<Student>();
+//	@ManyToMany(targetEntity = Student.class,mappedBy = "teachers")
+//	@Cascade(CascadeType.SAVE_UPDATE)
+//	private Set<Student> students = new HashSet<Student>();
 
+	@ManyToMany(targetEntity=Student.class, mappedBy="teachers")
+	private Set<Student> students = new HashSet<Student>();
 
 	public Integer getId() {
 		return id;
