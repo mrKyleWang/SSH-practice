@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate?useSSL=false</property>
+        <property name="hibernate.connection.username">wking</property>
+        <property name="hibernate.connection.password">king</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!--配置映射实体类-->
+        <mapping class="com.itheima.domain.Book"/>
+        <mapping class="com.itheima.domain.Person"/>
+
+
+        <mapping class="com.itheima.oneToMany.Customer"></mapping>
+        <mapping class="com.itheima.oneToMany.Order"></mapping>
+        <mapping class="com.itheima.manyToMany.Student"></mapping>
+        <mapping class="com.itheima.manyToMany.Teacher"></mapping>
+        <mapping class="com.itheima.oneToOne.Husband"></mapping>
+        <mapping class="com.itheima.oneToOne.Wife"></mapping>
+        <mapping class="com.itheima.oneToOne.User"></mapping>
+        <mapping class="com.itheima.oneToOne.IDCard"></mapping>
+
+    </session-factory>
+</hibernate-configuration>
