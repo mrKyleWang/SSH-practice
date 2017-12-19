@@ -15,3 +15,6 @@
 
 + ### hibernate_demo3:
 > 使用hibernate注解, 练习一对多、多对多、一对一 映射
+
++ ### struts-hibernate_homework4:
+> 基于struts_homework3, hibernate改为注解开发, 新增商品添加功能
