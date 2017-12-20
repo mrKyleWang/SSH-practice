@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="hibernate-struts_homework4:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="hibernate-struts_homework3.war">
+    <root id="archive" name="hibernate-struts_homework4.war">
       <element id="artifact" artifact-name="hibernate-struts_homework4:war exploded" />
     </root>
   </artifact>
