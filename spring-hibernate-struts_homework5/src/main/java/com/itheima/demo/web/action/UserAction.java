@@ -6,11 +6,13 @@ import com.itheima.demo.service.IUserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 @SuppressWarnings("serial")
 @Namespace("/")
@@ -18,10 +20,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserAction extends ActionSupport implements ModelDriven<User> {
 
     private User user = new User();
-    @Autowired
     private IUserService userservice;
 
-    private String PRODUCT = "/hibernate-struts_homework4/product.html";
+    {
+        WebApplicationContext webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(ServletActionContext.getServletContext());
+        userservice = webApplicationContext.getBean(IUserService.class);
+    }
+
+    private String PRODUCT = "/spring-hibernate-struts_homework5/product.html";
 
     @Override
     public User getModel() {

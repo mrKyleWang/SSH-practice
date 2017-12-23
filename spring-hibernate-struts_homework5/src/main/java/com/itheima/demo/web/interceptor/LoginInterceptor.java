@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginInterceptor extends MethodFilterInterceptor{
 	
 	
-	private String LOGIN = "/hibernate-struts_homework4/login.html";
+	private String LOGIN = "/spring-hibernate-struts_homework5/login.html";
 
 	@Override
 	protected String doIntercept(ActionInvocation invocation) throws Exception {

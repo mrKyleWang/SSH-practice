@@ -6,8 +6,10 @@ import com.itheima.demo.service.IProductService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import java.util.List;
 
@@ -17,8 +19,12 @@ import java.util.List;
 public class ProductAction extends ActionSupport implements ModelDriven<Product>{
 
 	private Product product = new Product();
-	@Autowired
+
 	private IProductService productService;
+	{
+		WebApplicationContext webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(ServletActionContext.getServletContext());
+		productService = webApplicationContext.getBean(IProductService.class);
+	}
 
 	@Action(value = "showProduct", results = {
 			@Result(name = "result", type = "json", params = { "root", "vo" }) }, interceptorRefs = {
