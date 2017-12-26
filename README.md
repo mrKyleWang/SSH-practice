@@ -21,3 +21,15 @@
 
 + ### spring-hibernate-struts_homework5:
 > 基于hibernate-struts_homework4, 使用spring(注解)管理除action以外的bean, action中的service注入以WebApplicationContext对象的getBean()方法实现.
+
++ ### spring_homework7:
+> 练习使用xml配置spring事务
+
++ ### spring_homework8:
+> 练习使用注解配置spring事务
+
++ ### ssh-xml-test:
+> 练习ssh整合, 使用xml配置
+
++ ### ssh-xml-anno-test:
+> 练习ssh整合, 使用注解配置
