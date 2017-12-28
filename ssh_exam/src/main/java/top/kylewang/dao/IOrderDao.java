@@ -13,5 +13,9 @@ public interface IOrderDao {
     List<Order> findOrderByCustomer(Customer customer,Integer currentPage,Integer pageSize) throws Exception;
     void save(Order order);
     void commit();
-    public Integer count(Customer customer);
+    Integer count(Customer customer);
+
+    Order findById(String orderNum);
+
+    void del(Order existOrder);
 }

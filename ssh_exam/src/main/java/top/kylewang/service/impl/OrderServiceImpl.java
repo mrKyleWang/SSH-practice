@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import top.kylewang.dao.ICustomerDao;
 import top.kylewang.dao.IOrderDao;
 import top.kylewang.entity.Customer;
+import top.kylewang.entity.Order;
 import top.kylewang.entity.PageBean;
 import top.kylewang.service.IOrderService;
 
@@ -30,7 +31,7 @@ public class OrderServiceImpl implements IOrderService{
             if(customer!=null){
                 PageBean pageBean = new PageBean();
                 Integer count = orderDao.count(customer);
-                Integer totalPage = new Double(Math.ceil(count/pageSize)).intValue();
+                Integer totalPage = new Double(Math.ceil(1.0*count/pageSize)).intValue();
                 pageBean.setTotalPage(totalPage);
                 pageBean.setList(orderDao.findOrderByCustomer(customer,currentPage,pageSize));
                 return pageBean;
@@ -39,5 +40,17 @@ public class OrderServiceImpl implements IOrderService{
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public void delOrder(String orderNum) {
+        try {
+            Order existOrder = orderDao.findById(orderNum);
+            if (existOrder != null) {
+                orderDao.del(existOrder);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

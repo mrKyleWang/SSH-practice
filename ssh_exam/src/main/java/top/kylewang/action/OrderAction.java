@@ -34,6 +34,8 @@ public class OrderAction extends ActionSupport {
     private Integer currentPage;
     @Setter
     private Integer pageSize;
+    @Setter
+    private String orderNum;
 
     @Autowired
     private IOrderService orderService;
@@ -73,5 +75,10 @@ public class OrderAction extends ActionSupport {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Action(value = "delOrder")
+    public void delOrder(){
+        orderService.delOrder(orderNum);
     }
 }

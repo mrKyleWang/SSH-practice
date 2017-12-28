@@ -8,4 +8,7 @@ import top.kylewang.entity.PageBean;
  */
 public interface IOrderService {
     PageBean findOrderByCustomer(Integer id, Integer currentPage, Integer customerId);
+
+    void delOrder(String orderNum);
 }
+

@@ -48,4 +48,12 @@ public class OrdersInitTest {
         }
         orderDao.commit();
     }
+
+    @Test
+    public void mathTest(){
+        Double aDouble = new Double(Math.ceil(1.0*43 / 10));
+        System.out.println(aDouble);
+        Integer totalPage = aDouble.intValue();
+        System.out.println(totalPage);
+    }
 }

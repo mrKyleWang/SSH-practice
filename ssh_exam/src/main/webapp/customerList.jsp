@@ -30,18 +30,20 @@
             if (confirm("确定删除客户:" + name + "?")) {
                 location.href = "${pageContext.request.contextPath}/customer/delCustomer?id=" + id;
             }
-        };
-        function delOrder(orderNum) {
+        }
+
+        function delOrder(orderNum, id) {
             if (confirm("确定删除订单:" + orderNum + "?")) {
-                alert(orderNum);
-                <%--location.href = "${pageContext.request.contextPath}/order/delOrder?id=" + id;--%>
+                $.post("${pageContext.request.contextPath}/order/delOrder", {"orderNum": orderNum}, function (data) {
+                    showOrders(id);
+                });
             }
-        };
+        }
 
         function showOrders(id) {
             currentPage = 1;
             findOrders(id);
-        };
+        }
 
         function findOrders(id) {
             $.getJSON("${pageContext.request.contextPath}/order/findOrderByCustomer", {
@@ -53,7 +55,7 @@
                 var list = jsonData.list;
                 var orderContent = "";
                 for (var i = 0; i < list.length; i++) {
-                    orderContent += "<tr><td>" + list[i].orderNum + "</td><td>" + list[i].receiverInfo + "</td><td>" + list[i].price + "</td><td>" + list[i].customer.cusName + "</td><td><a href=\"javascript:void(0)\" onclick=\"delOrder("+list[i].orderNum+")\">删除订单</a></td></tr>";
+                    orderContent += "<tr><td>" + list[i].orderNum + "</td><td>" + list[i].receiverInfo + "</td><td>" + list[i].price + "</td><td>" + list[i].customer.cusName + "</td><td><a href=\"javascript:void(0)\" onclick=\"delOrder('" + list[i].orderNum + "'," + id + ");\">删除订单</a></td></tr>";
 
                 }
                 $("#orderBody").html(orderContent);
@@ -87,7 +89,7 @@
                         findOrders(id)
                     });
                 }
-                ;
+
                 if (currentPage == totalPage) {
                     $("#next").attr("class", "disabled");
                 } else {
@@ -163,12 +165,10 @@
 
                         </tbody>
                     </table>
-                    <div class="center-block" style="width:200px">
-                        <nav aria-label="Page navigation">
-                            <ul id="pagination" class="pagination">
-                            </ul>
-                        </nav>
-                    </div>
+                    <nav aria-label="Page navigation" style="text-align: center">
+                        <ul id="pagination" class="pagination" style="margin: 0 auto">
+                        </ul>
+                    </nav>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>

@@ -32,6 +32,16 @@ public class OrderDaoImpl extends HibernateDaoSupport implements IOrderDao {
     }
 
     @Override
+    public Order findById(String orderNum) {
+        return getHibernateTemplate().get(Order.class,orderNum);
+    }
+
+    @Override
+    public void del(Order existOrder) {
+        getHibernateTemplate().delete(existOrder);
+    }
+
+    @Override
     public List<Order> findOrderByCustomer(Customer customer, Integer currentPage, Integer pageSize) throws Exception {
         DetachedCriteria dc = DetachedCriteria.forClass(Order.class);
         dc.add(Restrictions.eq("customer", customer));
