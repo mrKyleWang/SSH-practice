@@ -33,3 +33,6 @@
 
 + ### ssh-xml-anno-test:
 > 练习ssh整合, 使用注解配置
+
++ ### ssh-exam:
+> ssh整合案例, ui使用bootstrap, 实现查询客户,客户图片上传,删除客户,分页查询客户订单,删除订单
